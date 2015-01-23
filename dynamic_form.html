@@ -1,0 +1,369 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+        <style type="text/css">
+          .dropdown {
+            display: none; 
+          }
+        
+        </style>
+      <script src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("select#signup_custom_values_district_custom").change(function(){
+          $( "select#signup_custom_values_district_custom option:selected").each(function(){
+               
+                if($(this).attr("value")=="1"){
+                  $(".dropdown").hide();
+                  $(".district_1").show();
+                }
+                if($(this).attr("value")=="2"){
+                  $(".dropdown").hide();
+                  $(".district_2").show();
+                }
+                  
+               if($(this).attr("value")=="3"){
+                  $(".dropdown").hide();
+                  $(".district_3").show();
+                }
+                if($(this).attr("value")=="4"){
+                  $(".dropdown").hide();
+                  $(".district_4").show();
+                }
+                
+                  if($(this).attr("value")=="5"){
+                  $(".dropdown").hide();
+                  $(".district_5").show();
+                }
+                if($(this).attr("value")=="6"){
+                  $(".dropdown").hide();
+                  $(".district_6").show();
+                }
+                  
+               if($(this).attr("value")=="7"){
+                  $(".dropdown").hide();
+                  $(".district_7").show();
+                }
+                if($(this).attr("value")=="8"){
+                  $(".dropdown").hide();
+                  $(".district_8").show();
+                }
+                
+                  if($(this).attr("value")=="9"){
+                  $(".dropdown").hide();
+                  $(".district_9").show();
+                }
+                if($(this).attr("value")=="10"){
+                  $(".dropdown").hide();
+                  $(".district_10").show();
+                }
+                  
+               if($(this).attr("value")=="11"){
+                  $(".dropdown").hide();
+                  $(".district_11").show();
+                }
+                if($(this).attr("value")=="12"){
+                  $(".dropdown").hide();
+                  $(".district_12").show();
+                }
+                
+                  if($(this).attr("value")=="13"){
+                  $(".dropdown").hide();
+                  $(".district_13").show();
+                }
+                if($(this).attr("value")=="14"){
+                  $(".dropdown").hide();
+                  $(".district_14").show();
+                }
+                  
+               if($(this).attr("value")=="15"){
+                  $(".dropdown").hide();
+                  $(".district_15").show();
+                }
+                if($(this).attr("value")=="16"){
+                  $(".dropdown").hide();
+                  $(".district_16").show();
+                }
+                
+                  if($(this).attr("value")=="17"){
+                  $(".dropdown").hide();
+                  $(".district_17").show();
+                }
+                if($(this).attr("value")=="18"){
+                  $(".dropdown").hide();
+                  $(".district_18").show();
+                }
+                  
+               if($(this).attr("value")=="19"){
+                  $(".dropdown").hide();
+                  $(".district_19").show();
+                }
+                if($(this).attr("value")=="20"){
+                  $(".dropdown").hide();
+                  $(".district_20").show();
+                }
+                
+                  if($(this).attr("value")=="21"){
+                  $(".dropdown").hide();
+                  $(".district_21").show();
+                }
+                if($(this).attr("value")=="22"){
+                  $(".dropdown").hide();
+                  $(".district_22").show();
+                }
+                  
+               if($(this).attr("value")=="23"){
+                  $(".dropdown").hide();
+                  $(".district_23").show();
+                }
+                if($(this).attr("value")=="24"){
+                  $(".dropdown").hide();
+                  $(".district_24").show();
+                }
+                
+                  if($(this).attr("value")=="25"){
+                  $(".dropdown").hide();
+                  $(".district_25").show();
+                }
+                if($(this).attr("value")=="26"){
+                  $(".dropdown").hide();
+                  $(".district_26").show();
+                }
+                  
+               if($(this).attr("value")=="27"){
+                  $(".dropdown").hide();
+                  $(".district_27").show();
+                }
+                if($(this).attr("value")=="28"){
+                  $(".dropdown").hide();
+                  $(".district_28").show();
+                }
+                
+                  if($(this).attr("value")=="29"){
+                  $(".dropdown").hide();
+                  $(".district_29").show();
+                }
+                if($(this).attr("value")=="30"){
+                  $(".dropdown").hide();
+                  $(".district_30").show();
+                }
+                  
+               if($(this).attr("value")=="31"){
+                  $(".dropdown").hide();
+                  $(".district_31").show();
+                }
+                if($(this).attr("value")=="32"){
+                  $(".dropdown").hide();
+                  $(".district_32").show();
+                }
+                 
+                     
+            });
+        }).change();
+    });
+</script>
+      </head>
+  
+  <div id="content">
+  
+  {% if page.signup.content.size > 0 %}
+  <div id="intro" class="intro">{{ page.signup.content }}</div>
+  {% endif %}
+
+  {% if page.show_social_slider? and page.public_activities_count > 0 %}
+  {% include "social_slider" %}
+  {% endif %}
+  
+  <div class="form-wrap">
+    <div class="form">
+      
+      {% form_for signup %}
+      
+      {% if request.sorta_logged_in? %}
+      <h4>Hi {{ request.current_signup.name_or_email }}, thanks for joining!</h4>
+      
+      {% if request.logged_in? == false %}
+      <div class="padbottommore"><small>If you're not {{ request.current_signup.name_or_email }}, <a href="{{ request.current_signup.logout_url }}">click here to signup</a>.</small></div>
+      {% endif %}
+      
+      {% endif %}
+      
+      <div class="form-errors">{% error_messages_for signup %}</div>
+      
+      {% if request.sorta_logged_in? == false or request.current_signup.has_name? == false %}
+      <div class="row-fluid">
+        <div class="span6"><label for="signup_first_name">First Name</label>{% text_field "first_name", class:"text" %}</div>
+        <div class="span6"><label for="signup_last_name">Last Name</label>{% text_field "last_name", class:"text" %}</div>
+      </div>
+      {% endif %}
+      
+      {% if request.sorta_logged_in? == false or request.current_signup.has_mobile? == false %}
+      <div class="row-fluid">
+        <div class="span6"><label for="signup_email">Email</label>{% email_field "email", class:"text" %}</div>
+         
+     <div class="span6"> <label for="signup_email">District</label>{% collection_select "custom_values.district", custom_fields.signup.district.multiple_choice_options %}
+        </div>
+      </div>
+        
+ 
+        <div class="district_1 dropdown"> <label for="signup_email">School</label>{% collection_select "employer", custom_fields.signup.district_1_schools.multiple_choice_options %}
+       </div>
+        <div class="district_2 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_2_schools", custom_fields.signup.district_2_schools.multiple_choice_options %}
+        </div>
+        <div class="district_3 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_3_schools", custom_fields.signup.district_3_schools.multiple_choice_options %}
+         </div>
+        <div class="district_4 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_4_schools", custom_fields.signup.district_4_schools.multiple_choice_options %}
+         </div>
+        <div class="district_5 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_5_schools", custom_fields.signup.district_5_schools.multiple_choice_options %}
+        </div>
+        <div class="district_6 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_6_schools", custom_fields.signup.district_6_schools.multiple_choice_options %}
+         </div>
+        <div class="district_7 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_7_schools", custom_fields.signup.district_7_schools.multiple_choice_options %}
+         </div>
+        <div class="district_8 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_8_schools", custom_fields.signup.district_8_schools.multiple_choice_options %}
+         </div>
+        <div class="district_9 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_9_schools", custom_fields.signup.district_9_schools.multiple_choice_options %}
+        </div>
+        <div class="district_10 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_10_schools", custom_fields.signup.district_10_schools.multiple_choice_options %}
+        </div>
+        <div class="district_11 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_11_schools", custom_fields.signup.district_11_schools.multiple_choice_options %}
+         </div>
+        <div class="district_12 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_12_schools", custom_fields.signup.district_12_schools.multiple_choice_options %}
+        </div>
+        <div class="district_13 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_13_schools", custom_fields.signup.district_13_schools.multiple_choice_options %}
+         </div>
+        <div class="district_14 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_14_schools", custom_fields.signup.district_14_schools.multiple_choice_options %}
+        </div>
+        <div class="district_15 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_15_schools", custom_fields.signup.district_15_schools.multiple_choice_options %}
+         </div>
+        <div class="district_16 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_16_schools", custom_fields.signup.district_16_schools.multiple_choice_options %}
+        </div>
+        <div class="district_17 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_17_schools", custom_fields.signup.district_17_schools.multiple_choice_options %}
+         </div>
+        <div class="district_18 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_18_schools", custom_fields.signup.district_18_schools.multiple_choice_options %}
+         </div>
+        <div class="district_19 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_19_schools", custom_fields.signup.district_19_schools.multiple_choice_options %}
+         </div>
+        <div class="district_20 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_20_schools", custom_fields.signup.district_20_schools.multiple_choice_options %}
+         </div>
+        <div class="district_21 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_21_schools", custom_fields.signup.district_21_schools.multiple_choice_options %}
+         </div>
+        <div class="district_22 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_22_schools", custom_fields.signup.district_22_schools.multiple_choice_options %}
+         </div>
+        <div class="district_23 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_23_schools", custom_fields.signup.district_23_schools.multiple_choice_options %}
+         </div>
+        <div class="district_24 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_24_schools", custom_fields.signup.district_24_schools.multiple_choice_options %}
+         </div>
+        <div class="district_25 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_25_schools", custom_fields.signup.district_25_schools.multiple_choice_options %}
+         </div>
+        <div class="district_26 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_26_schools", custom_fields.signup.district_26_schools.multiple_choice_options %}
+         </div>
+        <div class="district_27 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_27_schools", custom_fields.signup.district_27_schools.multiple_choice_options %}
+         </div>
+        <div class="district_28 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_28_schools", custom_fields.signup.district_28_schools.multiple_choice_options %}
+        </div>
+        <div class="district_29 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_29_schools", custom_fields.signup.district_29_schools.multiple_choice_options %}
+         </div>
+        <div class="district_30 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_30_schools", custom_fields.signup.district_30_schools.multiple_choice_options %}
+        </div>
+        <div class="district_31 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_31_schools", custom_fields.signup.district_31_schools.multiple_choice_options %}
+         </div>
+        <div class="district_32 dropdown"> <label for="signup_email">School</label>{% collection_select "custom_values.district_32_schools", custom_fields.signup.district_32_schools.multiple_choice_options %}
+         </div>
+
+
+        
+      <div class="row-fluid">
+             {% if page.signup.has_optional_tags? %}
+      
+        <div class="span6"><label for="signup_optional_tag">Relationship to School</label>{% collection_select "optional_tag", page.signup.optional_tags, class:"select" %}</div>
+      
+      {% endif %}
+        <div class="span6"><label for="signup_email">Elected Union Position</label>{% collection_select "optional_tag", custom_fields.signup.elected_union_position.multiple_choice_options %}
+        
+        </div>
+
+       </div>
+          
+     <div class="row-fluid">   
+       <div class="span6">  {% check_box "custom_values.retired" %}<label class="checkbox"  for="signup_is_volunteer">I am retired</label></div>
+        <div class="span6"> {% check_box "custom_values.public_school_parent" %} <label class="checkbox" for="signup_is_volunteer">I am a public school parent</label></div>
+      </div>
+      
+      
+      
+      
+      {% if page.signup.is_phone? %}
+      <div class="row-fluid">
+        <div class="span12"><label for="signup_phone_number">Phone</label>{% phone_field "phone_number", class:"text" %}</div>
+      </div>
+      {% endif %}
+      
+      {% if page.signup.is_address? %}
+      
+      {% if request.sorta_logged_in? == false or request.current_signup.has_full_address? == false %}
+      <div class="row-fluid">
+        <div class="span12"><label for="signup_submitted_address">Address (Street, City, State, Postal code)</label>{% text_field "submitted_address", class:"text" %}</div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12"><label for="signup_country_code">Country</label>{% collection_select "country_code", page.signup.countries, "code", "name", class:"select" %}</div>
+      </div>
+      {% endif %}
+      
+      {% endif %}
+      
+ 
+      
+      <div class="row-fluid">
+        <div class="span6"><label class="checkbox" for="signup_email_opt_in">{% check_box "email_opt_in", class:"checkbox" %} Send me email updates</label></div>
+        {% if site.ask_for_mobiles? %}
+        <div class="span6"><label class="checkbox" for="signup_mobile_opt_in">{% check_box "mobile_opt_in", class:"checkbox" %} Send me text message updates</label></div>
+        {% endif %}
+      </div>
+      {% endif %}
+      
+      {% if page.signup.is_volunteers? and site.ask_for_volunteers? %}
+      {% if request.sorta_logged_in? == false or request.current_signup.is_volunteer == false %}
+      <div class="row-fluid">
+        <div class="span12"><label class="checkbox" for="signup_is_volunteer">{% check_box "is_volunteer", class:"checkbox" %}  I want to help help organize and/or distribute literature to my coworkers</label></div>
+      </div>
+      {% endif %}
+      {% endif %}
+      
+      {% if request.sorta_logged_in? %}
+      {% submit_tag "Update info", class:"submit-button" %}
+      {% else %}
+      {% submit_tag "Signup", class:"submit-button" %}
+      {% endif %}
+      <div class="form-submit"></div>
+      
+      {% endform_for %}
+      
+      {% if page.text_keyword_instructions.size > 0 %}
+      <div class="row-fluid padbottom padtopmore">
+        <div class="span12">
+          or {{ page.text_keyword_instructions }}
+        </div>
+      </div>
+      {% endif %}
+      
+      
+    </div>
+  </div>
+  
+  {% if page.tags_count > 0 %}
+  <div id="page-tags" class="page-tags">{% include "page_tags" with page %}</div>
+  {% endif %}
+  
+  <div class="like-page">
+    <strong>Like us to spread the word</strong>
+    {% include "like_page" %}
+  </div>
+  
+</div>
+
+{% if page.show_stream? %}
+{% include "page_stream" %}
+{% endif %}
